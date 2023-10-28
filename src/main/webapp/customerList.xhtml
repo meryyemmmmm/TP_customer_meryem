@@ -1,37 +1,27 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
     <h:head>
         <title>Liste des clients</title>
     </h:head>
     <h:body>
-        <h:dataTable value="#{customerBean.customers}" var="item">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Id"/>
-                </f:facet>
-                <h:outputText value="#{item.customerId}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Nom"/>
-                </f:facet>
-                <h:outputText value="#{item.name}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Ville"/>
-                </f:facet>
-                <h:outputText value="#{item.city}"/> <!-- Ajout de la colonne "Ville" -->
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Discount"/>
-                </f:facet>
-                <h:outputText value="#{item.discountCode.code} : #{item.discountCode.rate} %" /> <!-- Affiche la propriété "discount" de l'entité Customer -->
-            </h:column>
-        </h:dataTable>
+        <p:dataTable value="#{customerBean.customers}" var="item" paginator="true" rows="10">
+            <p:column headerText="Id">
+                <h:outputText value="#{item.customerId}" />
+            </p:column>
+            <p:column headerText="Nom" sortBy="#{item.name}" filterBy="#{item.name}">
+                <h:outputText value="#{item.name}" />
+            </p:column>
+            <p:column headerText="Ville">
+                <h:outputText value="#{item.city}" />
+            </p:column>
+            <p:column headerText="État" sortBy="#{item.state}" filterBy="#{item.state}">
+                <h:outputText value="#{item.state}" />
+            </p:column>
+        </p:dataTable>
     </h:body>
 </html>
