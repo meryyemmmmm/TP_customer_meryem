@@ -1,5 +1,6 @@
+com\meryy\tpcustomermery\entity\Discount.class
 com\meryy\tpcustomermery\JakartaRestConfiguration.class
 com\meryy\tpcustomermery\entity\MicroMarket.class
 com\meryy\tpcustomermery\resources\JakartaEE10Resource.class
+com\meryy\tpcustomermery\service\CustomerManager.class
 com\meryy\tpcustomermery\entity\Customer.class
-com\meryy\tpcustomermery\entity\Discount.class
