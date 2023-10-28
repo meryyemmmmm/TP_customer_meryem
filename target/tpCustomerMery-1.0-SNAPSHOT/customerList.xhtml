@@ -30,7 +30,7 @@
                 <f:facet name="header">
                     <h:outputText value="Discount"/>
                 </f:facet>
-                <h:outputText value="#{item.discountCode.code}"/> <!-- Affiche la propriété "discount" de l'entité Customer -->
+                <h:outputText value="#{item.discountCode.code} : #{item.discountCode.rate} %" /> <!-- Affiche la propriété "discount" de l'entité Customer -->
             </h:column>
         </h:dataTable>
     </h:body>
