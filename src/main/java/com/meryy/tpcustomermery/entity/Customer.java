@@ -17,7 +17,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author hp
+ * @author user
  */
 @Entity
 @Table(name = "customer")
@@ -60,7 +60,7 @@ public class Customer implements Serializable {
     private Integer creditLimit;
     @JoinColumn(name = "DISCOUNT_CODE", referencedColumnName = "CODE")
     @ManyToOne(optional = false)
-    private Discount discountCode;
+    private Discount discount;
     @JoinColumn(name = "ZIP", referencedColumnName = "ZIP_CODE")
     @ManyToOne(optional = false)
     private MicroMarket zip;
@@ -152,12 +152,12 @@ public class Customer implements Serializable {
         this.creditLimit = creditLimit;
     }
 
-    public Discount getDiscountCode() {
-        return discountCode;
+    public Discount getDiscount () {
+        return discount;
     }
 
-    public void setDiscountCode(Discount discountCode) {
-        this.discountCode = discountCode;
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 
     public MicroMarket getZip() {
@@ -167,8 +167,6 @@ public class Customer implements Serializable {
     public void setZip(MicroMarket zip) {
         this.zip = zip;
     }
-   
-    
 
     @Override
     public int hashCode() {
@@ -194,5 +192,4 @@ public class Customer implements Serializable {
     public String toString() {
         return "com.meryy.tpcustomermery.entity.Customer[ customerId=" + customerId + " ]";
     }
-    
-}
+  }
