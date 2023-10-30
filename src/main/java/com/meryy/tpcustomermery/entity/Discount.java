@@ -19,7 +19,7 @@ import java.util.Collection;
 
 /**
  *
- * @author hp
+ * @author user
  */
 @Entity
 @Table(name = "discount")
@@ -37,7 +37,7 @@ public class Discount implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "RATE")
     private BigDecimal rate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "discountCode")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "discount")
     private Collection<Customer> customerCollection;
 
     public Discount() {
@@ -93,7 +93,7 @@ public class Discount implements Serializable {
 
     @Override
     public String toString() {
-        return "com.meryy.tpcustomermery.entity.Discount[ code=" + code + " ]";
+        return "ma.emsi.tpcustomeryechhab.entity.Discount[ code=" + code + " ]";
     }
     
 }
