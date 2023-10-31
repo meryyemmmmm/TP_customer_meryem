@@ -5,11 +5,14 @@
 package com.meryy.tpcustomermery.jsf;
 
 import com.meryy.tpcustomermery.entity.Customer;
+import com.meryy.tpcustomermery.entity.Discount;
 import com.meryy.tpcustomermery.service.CustomerManager;
+import com.meryy.tpcustomermery.service.DiscountManager;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -20,15 +23,36 @@ import java.io.Serializable;
 public class CustomerDetailsBean implements Serializable {
 
     private int idCustomer;
+
+    /**
+     *
+     */
     private Customer customer;
 
+    /**
+     *
+     */
     @Inject
     private CustomerManager customerManager;
 
+    /**
+     *
+     */
+    @Inject
+    private DiscountManager discountManager;
+
+    /**
+     *
+     * @return
+     */
     public int getIdCustomer() {
         return idCustomer;
     }
 
+    /**
+     *
+     * @param idCustomer
+     */
     public void setIdCustomer(int idCustomer) {
         this.idCustomer = idCustomer;
     }
@@ -57,7 +81,19 @@ public class CustomerDetailsBean implements Serializable {
         return "customerList";
     }
 
+    /**
+     *
+     */
     public void loadCustomer() {
         this.customer = customerManager.findById(idCustomer);
+    }
+
+    /**
+     * Retourne la liste de tous les Discount.
+     *
+     * @return
+     */
+    public List<Discount> getDiscounts() {
+        return discountManager.getAllDiscounts();
     }
 }
