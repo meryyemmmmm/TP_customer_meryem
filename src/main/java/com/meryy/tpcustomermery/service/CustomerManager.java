@@ -41,5 +41,6 @@ public class CustomerManager {
         return em.find(Customer.class, idCustomer);
 
     }
+    
 
 }

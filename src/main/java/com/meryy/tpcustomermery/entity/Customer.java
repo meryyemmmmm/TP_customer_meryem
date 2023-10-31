@@ -152,7 +152,7 @@ public class Customer implements Serializable {
         this.creditLimit = creditLimit;
     }
 
-    public Discount getDiscount () {
+    public Discount getDiscount() {
         return discount;
     }
 
@@ -192,4 +192,4 @@ public class Customer implements Serializable {
     public String toString() {
         return "com.meryy.tpcustomermery.entity.Customer[ customerId=" + customerId + " ]";
     }
-  }
+}
